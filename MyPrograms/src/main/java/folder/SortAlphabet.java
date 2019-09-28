@@ -9,42 +9,40 @@ public class SortAlphabet
 {
 	public static void main(String[] args) 
 	{
-		String input="BcaDbdAC";
-		int i=0,position;
-		String output="";
+		String input="BcaDbdAC",output="";
+		int i=0;
 		char[] inputCharArray = input.toCharArray();
-		List<Character> sort =new ArrayList<Character>();
+		List<Character> inputList =new ArrayList<Character>();
 		for(int j=0;j<inputCharArray.length;j++)
 		{
 			Character valueOf = Character.valueOf(inputCharArray[j]);
-			sort.add(valueOf);
+			inputList.add(valueOf);
 		}
-		while(i<sort.size())
+		while(i<inputList.size())
 		{
-			char a=sort.get(i);
+			char a=inputList.get(i);
 			if(Character.isUpperCase(a)) 
 				a=Character.toLowerCase(a);
 			else
 				a=Character.toUpperCase(a);
-			for(int j=i+1;j<sort.size();j++)
+			for(int j=i+1;j<inputList.size();j++)
 			{
-				char b=sort.get(j);
+				char b=inputList.get(j);
 				if(a==b)
 				{
-					sort.remove(j);
-					sort.add(i+1,b);
+					inputList.remove(j);
+					inputList.add(i+1,b);
 					break;
 				}		
 			}
 			i=i+1;
 			//i=i+2;
 		}
-		for(Character ch:sort)
+		for(Character ch:inputList)
 		{
 			//System.out.print(ch);
 			output=output+ch;
 		}
 		System.out.println(output);
 		}
-	
 }
